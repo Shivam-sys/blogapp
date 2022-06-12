@@ -13,7 +13,7 @@ router.get("/blog", (req, res) => {
     console.log(element.title);
   });
   // res.sendFile(path.join(__dirname, "../templates/bloghome.html"));
-  res.render("bloghome");
+  res.render("bloghome", { blogs });
 });
 
 router.get("/blog/:slug", (req, res) => {
@@ -21,7 +21,10 @@ router.get("/blog/:slug", (req, res) => {
     return e.slug == req.params.slug;
   });
   console.log(myblog);
-  res.render("blogpage");
+  res.render("blogpage", {
+    title: myblog[0].title,
+    description: myblog[0].description,
+  });
   // res.sendFile(path.join(__dirname, "../templates/blogpage.html"));
 });
 
