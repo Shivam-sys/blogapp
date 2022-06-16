@@ -1,9 +1,21 @@
 <ul>
-  {{#each blogs}}
-    <li>
-      <a href="./blog/{{this.slug}}">
-        {{this.title}}
-      </a>
-    </li>
-  {{/each}}
+  {{#if tech}}
+    {{#each blogs}}
+      <li>
+        <a href="/tech/{{this.slug}}">
+          {{this.title}}
+        </a>
+      </li>
+    {{/each}}
+  {{/if}}
+
+  {{#if life}}
+    {{#each blogs}}
+      <li>
+        <a href="/life/{{this.slug}}">
+          {{this.title}}
+        </a>
+      </li>
+    {{/each}}
+  {{/if}}
 </ul>
