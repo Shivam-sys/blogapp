@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 var { engine } = require("express-handlebars");
+const techBlogs = require("./data/tech");
+const lifeBlogs = require("./data/life");
 
 const app = express();
 
@@ -16,7 +18,7 @@ app.use(express.static(path.join(__dirname, "static")));
 // app.use("/", require(path.join(__dirname, "routes", "tech.js")));
 
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", { techBlogs, lifeBlogs });
 });
 
 const techRouter = require("./routes/tech");

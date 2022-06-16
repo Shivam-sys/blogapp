@@ -10,7 +10,6 @@ router.get("/:slug", (req, res) => {
   myblog = blogs.filter((e) => {
     return e.slug == req.params.slug;
   });
-  console.log(myblog);
   res.render("blogpage", {
     title: myblog[0].title,
     description: myblog[0].description,
